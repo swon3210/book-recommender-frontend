@@ -10,7 +10,8 @@ type LoginSectionProps = {
 
 const StyledDiv = styled.div`
   display: flex;
-  height: 100vh;
+  height: 93%;
+  background-color: white;
   .form {
     margin: auto;
   }
@@ -18,7 +19,7 @@ const StyledDiv = styled.div`
 
 const ImgDiv = styled.div`
   width: 50%;
-  background-image: url(${require("assets/img/ward-login.jpg")});
+  background-image: url(${require("../../../assets/img/login.jpg")});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -70,8 +71,8 @@ const LoginSection = ({ mode }: LoginSectionProps) => {
       <ImgDiv></ImgDiv>
       <Form
         className="form"
-        title="WARD"
-        subTitle="We Are Resfectful Developers"
+        title="도서 추천 서비스"
+        subTitle="학교 이메일과 등록한 비밀번호를 통해 로그인 해주세요"
         bodyElements={bodies[mode]}
         footerElements={footers[mode]}
       ></Form>

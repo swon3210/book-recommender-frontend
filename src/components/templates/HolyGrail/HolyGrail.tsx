@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import './HolyGrail.scss';
+import "./HolyGrail.scss";
 
 import { SideBar, ListItem, Icon, PageHeader } from "react-uikit-ward";
 
@@ -9,15 +9,10 @@ type HolyGrailProps = {
   children: React.ReactNode;
 };
 
-const logo = <Icon icon="logo"></Icon>;
-const leading1 = <Icon icon="dashboard"></Icon>;
-const leading2 = <Icon icon="products"></Icon>;
-const leading3 = <Icon icon="customers"></Icon>;
-const leading4 = <Icon icon="chatting"></Icon>;
-
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  background-color: #eee;
 
   .side-bar {
     flex-shrink: 0;
@@ -30,7 +25,7 @@ const Main = styled.main`
 
 const HolyGrail = ({ children }: HolyGrailProps) => {
   const [layoutState, setLayoutState] = useState({
-    sidebarToggle: true
+    sidebarToggle: true,
   });
 
   const sideBarToggleClickHandler = () => {
@@ -40,7 +35,7 @@ const HolyGrail = ({ children }: HolyGrailProps) => {
   };
 
   const sideBarToggleButton = (
-    <div style={{cursor: 'pointer'}} onClick={sideBarToggleClickHandler}>
+    <div style={{ cursor: "pointer" }} onClick={sideBarToggleClickHandler}>
       <Icon icon="menu"></Icon>
     </div>
   );
@@ -56,23 +51,24 @@ const HolyGrail = ({ children }: HolyGrailProps) => {
       <SideBar
         width="14rem"
         height="100vh"
-        header={logo}
         sticky={true}
         className="side-bar"
         toggled={layoutState.sidebarToggle}
         toggleAnimation="shrink"
-        
       >
-        <ListItem leading={leading1}>판매 현황</ListItem>
-        <ListItem leading={leading2} border="none">
-          상품 관리 / 등록
-        </ListItem>
-        <ListItem leading={leading3} border="none">
-          고객 정보 관리
-        </ListItem>
-        <ListItem leading={leading4} border="none">
-          고객 문의 관리
-        </ListItem>
+        <Link to="/" style={{ color: "white" }}>
+          <ListItem border="none">서비스 소개</ListItem>
+        </Link>
+        <Link to="/algorithm" style={{ color: "white" }}>
+          <ListItem border="none">알고리즘 소개</ListItem>
+        </Link>
+        <Link to="/recommendation" style={{ color: "white" }}>
+          <ListItem border="none">도서 추천</ListItem>
+        </Link>
+        <Link to="/evaluation" style={{ color: "white" }}>
+          <ListItem border="none">서비스 평가</ListItem>
+        </Link>
+        
       </SideBar>
       <Main>
         <PageHeader
